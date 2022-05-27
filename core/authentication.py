@@ -50,7 +50,8 @@ def create_refresh_token(id):
         'user_id': id,
         'exp': datetime.datetime.utcnow() + datetime.timedelta(days=7),
         'iat': datetime.datetime.utcnow()
-    }, 'refresh_secret', algorithm='HS256')
+    }, 'refresh_secret', algorithm='HS256').decode('utf-8')
+
 
 def decode_refresh_token(token):
     try:
